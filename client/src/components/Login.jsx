@@ -18,7 +18,7 @@ const Box1 = styled(Box)`
   }
 `;
 
-function Login(props) {
+function Login({ setname }) {
   const initialvalue = { email: "", password: "" };
   const [Values, setValues] = useState(initialvalue);
 
@@ -31,6 +31,7 @@ function Login(props) {
   const handleClick = async () => {
     const response = await loginUser(Values);
     if (response.data.msg === "ok") {
+      setname(response.data.Name);
       alert("SuccessFully Login");
 
       navigate("/homepage");

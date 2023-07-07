@@ -36,9 +36,12 @@ function SignUp(props) {
 
   const handleClick = async () => {
     const response = await signupUser(Values);
-    alert(response.data.msg);
-    if (response.data.msg === "User SuccessFully SignUp") {
+
+    if (response.data.msg === "ok") {
+      alert("SuccessFully Signup");
       navigate("/");
+    } else {
+      alert(response.data.msg);
     }
   };
 

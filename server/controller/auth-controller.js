@@ -31,7 +31,7 @@ export const signup = async (req, res) => {
 
     const token = createToken(user._id);
 
-    res.status(200).json({ msg: "User SuccessFully SignUp", email, token });
+    res.status(200).json({ msg: "ok", token });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
@@ -56,7 +56,7 @@ export const login = async (req, res) => {
     if (await bcrypt.compare(password, User.password)) {
       const token = createToken(User._id);
 
-      res.status(200).json({ email, token });
+      res.status(200).json({ msg: "ok", Name: User.name, token });
     } else {
       res.send({ msg: "Invalid Password" });
     }
