@@ -5,7 +5,7 @@ function ContactBook(props) {
   return (
     <div>
       <NavBar />
-      <h2>Made By Prateek</h2>
+      <h1>welcome {props.name}</h1>
     </div>
   );
 }

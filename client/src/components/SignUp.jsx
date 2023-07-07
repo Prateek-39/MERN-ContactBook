@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  TextField,
-  styled,
-  Box,
-  Typography,
-  Card,
-} from "@mui/material";
+import { Button, TextField, styled, Box, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { signupUser } from "../Service/api";
 import { useNavigate } from "react-router-dom";
@@ -36,10 +29,13 @@ function SignUp(props) {
 
   const handleClick = async () => {
     const response = await signupUser(Values);
-    // console.log(response.data.token)
-    if (response.data.msg === "User SuccessFully SignUp") {
-    localStorage.setItem("token", response.data.token);
+
+    if (response.data.msg === "ok") {
+      alert("Signup SuccessFully");
+      localStorage.setItem("token", response.data.token);
       navigate("/");
+    } else {
+      alert(response.data.msg);
     }
   };
 

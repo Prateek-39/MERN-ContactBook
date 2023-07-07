@@ -25,7 +25,7 @@ const initialValue = {
   email: "",
   phone: "",
 };
-const token  = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 function AddUser(props) {
   const [user, setUser] = useState(initialValue);
 
@@ -36,10 +36,9 @@ function AddUser(props) {
   };
 
   const addUserDetails = async () => {
-    const response  = await addUser(user,token);
-    console.log(token)
-    console.log(response);
-    navigate("/all"); 
+    const token = localStorage.getItem("token");
+    const response = await addUser(user, token);
+    navigate("/all");
   };
 
   return (

@@ -18,7 +18,7 @@ const Box1 = styled(Box)`
   }
 `;
 
-function Login(props) {
+function Login({ setname }) {
   const initialvalue = { email: "", password: "" };
   const [Values, setValues] = useState(initialvalue);
 
@@ -29,26 +29,21 @@ function Login(props) {
   };
 
   const handleClick = async () => {
-    
     try {
-      // e.preventDefault();
-    
       const response = await loginUser(Values);
       console.log(response);
-      if (response.data.msg ==="User SuccessFully SignUp" ) {
+      if (response.data.msg === "ok") {
+        alert("Login SuccessFully");
         localStorage.setItem("token", response.data.token);
-        console.log(response.data.token);
+        setname(response.data.Name);
         navigate("/homepage");
-      } 
-      else{
-    alert('Enter correct credentials')
+      } else {
+        alert(response.data.msg);
+        navigate("/signup");
       }
     } catch (error) {
-      console.log(error)
-      console.log("none")
-
+      console.log(error);
     }
-
   };
 
   return (

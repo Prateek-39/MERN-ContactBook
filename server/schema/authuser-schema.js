@@ -6,13 +6,6 @@ const user = mongoose.Schema({
   password: { type: String, require: true },
 });
 
-// static method signup
-// user.static.signup = async(email,password)=>{
-//     const exists = await this.findOne({email});
-//     if(exists){
-//       throw.Error("")
-//     }
-// }
 const AuthUserModel = mongoose.model("AuthUserModel", user);
 
 export default AuthUserModel;

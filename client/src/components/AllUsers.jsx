@@ -36,7 +36,7 @@ const TRow = styled(TableRow)`
 
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
-const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   useEffect(() => {
     getAllUsers();
   }, []);
@@ -47,8 +47,7 @@ const token = localStorage.getItem("token");
   };
 
   const getAllUsers = async () => {
-    let response = await getUsers(token );
-    console.log(response)
+    let response = await getUsers(token);
     setUsers(response.data);
   };
 
