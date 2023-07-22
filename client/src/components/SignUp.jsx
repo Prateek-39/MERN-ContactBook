@@ -10,8 +10,7 @@ const Box1 = styled(Box)`
     padding: 30px 40px ;
     display: flex;
     flex-direction: column;
-    border: 2px solid grey;
-    border-radius: 20px;
+    border: 1px solid grey;
     box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
     & > div {
         margin: 20px 0 10px 0;
@@ -31,7 +30,7 @@ function SignUp(props) {
     const response = await signupUser(Values);
 
     if (response.data.msg === "ok") {
-      alert("Signup SuccessFully");
+      alert(" Signup SuccessFully");
       localStorage.setItem("token", response.data.token);
       navigate("/");
     } else {
@@ -41,7 +40,7 @@ function SignUp(props) {
 
   return (
     <Box1>
-      <Typography variant="h3">SignUp Page</Typography>
+      <Typography variant="h3">Signup Page</Typography>
       <TextField
         variant="outlined"
         label="UserName"
@@ -65,7 +64,10 @@ function SignUp(props) {
       </Button>
       <span>
         <h2>
-          Already have account?<Link to="../"> login</Link>
+          Already have account?{" "}
+          <Link to="../">
+            <Button variant="contained"> Login</Button>
+          </Link>
         </h2>
       </span>
     </Box1>

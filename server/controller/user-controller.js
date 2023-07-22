@@ -47,7 +47,6 @@ export const editUser = async (req, res) => {
 
 export const getUsers = async (req, res) => {
   try {
-    console.log("getUSers Envoked");
     const token = await req.headers.token;
 
     const addedById = await verify_token(token);

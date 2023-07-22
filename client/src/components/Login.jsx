@@ -10,11 +10,11 @@ const Box1 = styled(Box)`
   padding: 30px 40px;
   display: flex;
   flex-direction: column;
-  border: 2px solid grey;
-  border-radius: 20px;
+  border: 1px solid grey;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.3);
   & > div {
     margin: 20px 0 10px 0;
+    textdecoration: "none";
   }
 `;
 
@@ -66,7 +66,10 @@ function Login({ setname }) {
       </Button>
       <span>
         <h2>
-          New User?<Link to="../signup">signup</Link>
+          New User?{" "}
+          <Link to="../signup">
+            <Button variant="contained">signup</Button>
+          </Link>
         </h2>
       </span>
     </Box1>
